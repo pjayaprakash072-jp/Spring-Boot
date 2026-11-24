@@ -25,6 +25,6 @@ History of java - Introduction
   First official release  - 1995(java): JDK 1.0 1996
   Current owner           - Oracle
   open-source
-    implementation        - openJDK
+  implementation          - openJDK
   Main Principle          - Write Once, Run Anywhere (WORA)
   Release cycle           - Every 6 months. 
