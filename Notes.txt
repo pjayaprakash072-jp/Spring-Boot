@@ -92,3 +92,49 @@ JAVA DAILE USEFUL COMMANDS
     -> jcmd PID GC.heap_info        - Display heap information
     -> jcmd PID help                - Display JVM diagnostic commands
     -> jstart -gc PID               - Monitor garbage collection
+WORKING OF JAVA -JDK, JRE and JVM
+==================================
+  -> when we write a java code, the computer cannot directly understnad the java code.
+  -> so, java follows a process to convert our code into a format that the JVM can understand and execute.
+  Process 
+      java code(Main.java) 
+              | 
+      javac (Bytecode ie Main.class)
+              | 
+      JVM executes the Bytecode.
+      - java compiler (javac )  converts java  source code into Bytecode.
+      - Bytecode stored in .class file
+      - Bytecode is playform independent, like the same Byte code can run  on differnt OS if a compatable JVM is available.
+
+  1. JVM (Java Virtual Machine) 
+    - JVM is an abstract Virtual machine that provides run time evnironment to load, verify, and execute Java Bytecode(.class file).
+      It act as a bridge between Java Bytecode and the operating system.
+      -> JVM is Platform dependent because each OS needs a compatable JVM.
+      -> JVM starts execution from the "main()" method of the specified main class.
+      -> JVM loads other required classes whenever needed, Does not execute every class file at once.
+      -> The "main()" method is "static", so JVM can invoke it without creating an object.
+
+  2. JRE (Java Runtime Environment) - JVM + JAVA Class Libraries + Supporting Runtime Files.
+    - JRE is a software evnironment that provides all the necessary components to run java applications,
+      including JVM, Java class libraries, and supporting runtime files.
+      -> JVM alone is not sufficient to run java applications
+        - it needs Java libraries and supporting files.
+          ex: Sustem    -Predefined Java class
+              out       -Predefined output stream
+              println() -Predefined method
+      -> JRE contains JVM, Java class libraries, and supporting files.
+      -> JVM executes Java Bytecode (.class file).
+      -> Java class libraries provide Predefined classes, methods, and functionalities.
+
+  3. JDK(Jaca Development Kit)             
+    - JDK is a software Development kit that provides the tools required
+      develop(write), compile, debug, and run java applications.
+      ->it includes
+        -> 'javac' compiler to convert '.java' files into '.class' files.
+        -> 'javadoc' to generate Java documentation.
+        -> debugging tools to identify and fix errors.
+        -> other tools required for java Development.
+
+    - JDK = Development tools  +  Runtime components
+        -> Development tools (javac, jar, jshell, javap,javadoc, jdb)
+        -> Runtime components (JVM, Java class libraries, Supporting Runtime Files.)
