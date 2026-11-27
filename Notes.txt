@@ -28,3 +28,67 @@ History of java - Introduction
   implementation          - openJDK
   Main Principle          - Write Once, Run Anywhere (WORA)
   Release cycle           - Every 6 months. 
+JAVA DAILE USEFUL COMMANDS
+=============================
+1. JAVA version and Path 
+  -> java --version                 - Displays the installed java version (JDK, JVM version) 
+  -> javac --version                - Displays the installed java compiler version
+  -> where.exe java                 - shows the path of java executable "java.exe" file in computer
+  -> where.exe javac                - shows the path of java compiler "javac.exe" fild in computer
+  -> echo %JAVA_HOME%               - shows the path configured in computer environmental variables.
+2. JAVA Compilation and Execution
+  -> javac Main.java                - Compile java file
+  -> java Main                      - Run compiled java class
+  -> java Main.java                 - Directly compile and run (java 11+)
+  -> javac Main.java Hello.java     - Compiler more files.
+  -> javac -d out Main.java         - compile into a output directory
+  -> java -cp out Main              - Run using class path 
+  -> java Main hello 123            - Run with arguments
+3. Bytecode and class file inspection (javap - java class file disassembler , informally java profiler)
+  -> javap Main                     - Display clas info.
+  -> javap -v Main                  - Display detailed class structure
+  -> javap -c Main                  - Display bytecode
+  -> javap -p Main                  - Display private members
+  -> javap -s Main                  - Display method descriptors(s -signature, like for int ->I(bytecode))
+  -> Format-Hex .\Main.clas         - to inspect ras class file bytes(PowerShell);
+  - example combined
+    -> javap -v -c Main 
+4. JAR COMMANDS (Java Archive)
+  -> A jar file is a package that bundles compiled java ".class" files and other resources into a single file.
+  .1 create jar file
+    -> jar --create --file app.jar --main.class Main Main.class Calculator.class .
+        - jar                       - runs the jar tool
+        --create                    - creates a new jar file
+        --file app.jar              - Names the output file
+        --main.class Main           - specifies teh starting class
+        Main.class                  - includes Main class
+        Calculator.class            - includes Calculator.class 
+        .                           - "." it is optional it means it includes every thing inside that directory.
+    2. Run the executable file 
+      -> java jar app.jar
+
+    3. List JAR contents
+      -> jar -tf app.jar
+                         - -t       - list table of contents
+                         - -f       - Specify the archive file.
+    4. EXtract JAR contents
+      -> jar -xf app.jar
+                         - -x       - Extract ( we will get the .class form the .jar file)
+                         - -f       - Specify the archieve file.
+    5. 
+  5. JShell(Java Shell)
+    1. It is an interactive tool used to execute Java code directly, Introduced in "Java 9"
+    2. No need to create ".java" file or write the "main()" method.
+    3. Mainly used for "Testing" and "experimenting" with small code snippets
+    ->Enter into java shell type interminal-> JShell
+    -> to get all available commands -> "/help"
+    exampels:
+        jshell> 2+4        jshell> int a = 10;                   jshell>void sayHi(){
+        $6                 jshell> int b = 9;                      ....> System.out.println("hello");}
+                           jshell> System.out.print(a+b);        jshell>sayHi();
+  6. JAVA DEBUGGING and MONITORING
+    -> jpx -l                       - list running java processes
+    -> jstack PID                   - Display thread dump
+    -> jcmd PID GC.heap_info        - Display heap information
+    -> jcmd PID help                - Display JVM diagnostic commands
+    -> jstart -gc PID               - Monitor garbage collection
